@@ -8,5 +8,17 @@ describe('Timesheet', () => {
 
     expect(result).toBe(true);
   });
+
+  test('timesheets that are added can be retrieved as a list', () => {
+    const timesheet = new Timesheet();
+
+    timesheet.submit('Project Alpha', 8);
+    timesheet.submit('Project Beta', 4);
+
+    expect(timesheet.getAll()).toEqual([
+      { projectName: 'Project Alpha', hours: 8 },
+      { projectName: 'Project Beta', hours: 4 },
+    ]);
+  });
 });
 
