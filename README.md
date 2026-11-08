@@ -299,7 +299,7 @@ Features:
    ```js
    class Timesheet {
      timesheets = new Map();
-npm test
+     
      submitTimesheet(projectName, duration) {
        this.timesheets.set(projectName, duration);
        return true;

@@ -20,5 +20,15 @@ describe('Timesheet', () => {
       { projectName: 'Project Beta', hours: 4 },
     ]);
   });
+
+  test('total hours worked can be calculated from timesheets of one project', () => {
+    const timesheet = new Timesheet();
+
+    timesheet.submit('Project Alpha', 8);
+    timesheet.submit('Project Alpha', 5);
+    timesheet.submit('Project Beta', 4);
+
+    expect(timesheet.getTotalHours('Project Alpha')).toBe(13);
+  });
 });
 
