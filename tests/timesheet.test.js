@@ -28,7 +28,7 @@ describe('Timesheet', () => {
     timesheet.submit('Project Alpha', 5);
     timesheet.submit('Project Beta', 4);
 
-    expect(timesheet.getTotalHours('Project Alpha')).toBe(13);
+    expect(timesheet.getTotalTimesheetHours('Project Alpha')).toBe(13);
   });
 });
 

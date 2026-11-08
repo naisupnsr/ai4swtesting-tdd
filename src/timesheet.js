@@ -4,7 +4,11 @@ class Timesheet {
   }
 
   submit(projectName, hours) {
-    this.timesheets.set(projectName, hours);
+    if (this.timesheets.has(projectName)) {
+      this.timesheets.set(projectName, this.timesheets.get(projectName) + hours);
+    } else {
+      this.timesheets.set(projectName, hours);
+    }
     return true;
   }
 
@@ -13,6 +17,10 @@ class Timesheet {
       projectName,
       hours,
     }));
+  }
+
+  getTotalTimesheetHours(projectName) {
+    return this.timesheets.get(projectName);
   }
 }
 
